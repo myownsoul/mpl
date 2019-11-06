@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2018 Grid Dynamics International, Inc. All Rights Reserved
+// Copyright (c) 2019 Grid Dynamics International, Inc. All Rights Reserved
 // https://www.griddynamics.com
 //
 // Classification level: Public
@@ -30,9 +30,9 @@ import static com.lesfurets.jenkins.unit.global.lib.LocalSource.localSource
 import static org.assertj.core.api.Assertions.assertThat
 
 import com.griddynamics.devops.mpl.Helper
-import com.griddynamics.devops.mpl.testing.MPLTestBase
+import com.griddynamics.devops.mpl.testing.MPLTestBaseCPS
 
-class BuildTest extends MPLTestBase {
+class BuildCPSTest extends MPLTestBaseCPS {
   def script = null
 
   @Override

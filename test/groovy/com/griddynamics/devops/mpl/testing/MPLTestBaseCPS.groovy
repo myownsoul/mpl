@@ -24,13 +24,13 @@
 package com.griddynamics.devops.mpl.testing
 
 import com.griddynamics.devops.mpl.testing.MPLTestBaseSetup
-import com.lesfurets.jenkins.unit.BasePipelineTest
+import com.lesfurets.jenkins.unit.cps.BasePipelineTestCPS
 
-import com.griddynamics.devops.mpl.testing.MPLTestHelper
+import com.griddynamics.devops.mpl.testing.MPLTestHelperCPS
 
-abstract class MPLTestBase extends BasePipelineTest {
-  MPLTestBase() {
-    helper = new MPLTestHelper()
+abstract class MPLTestBaseCPS extends BasePipelineTestCPS {
+  MPLTestBaseCPS() {
+    helper = new MPLTestHelperCPS()
   }
 
   void setUp() throws Exception {

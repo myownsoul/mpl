@@ -47,7 +47,7 @@ def call(String name = env.STAGE_NAME, cfg = null) {
     cfg = cfg.clone()
   else
     cfg = MPLConfig.create(cfg)
-  
+
   // Trace of the running modules to find loops
   // Also to make ability to use lib module from overridden one
   def active_modules = MPLManager.instance.getActiveModules()
@@ -64,10 +64,13 @@ def call(String name = env.STAGE_NAME, cfg = null) {
     module_src = readFile(project_path)
   } else {
     // Searching for the not executed module from the loaded libraries
-    module_src = Helper.getModulesList(module_path).find { it ->
-      module_path = "library:${it.first()}".toString()
-      ! active_modules.contains(module_path)
-    }?.last()
+    def modules = Helper.getModulesList(module_path)
+    for( def i = 0; i < modules.size(); i++ ) {
+      if( ! active_modules.contains(module_path) ) {
+        module_path = "library:${modules[i].first()}".toString()
+        module_src = modules[i].last()
+      }
+    }
   }
 
   if( ! module_src )
